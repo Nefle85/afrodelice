@@ -1,0 +1,98 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contactez-nous{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1 class="text-center text-light pb-4">Contactez-nous</h1>
+
+    <div class="row" style="display: flex; align-items: stretch;">
+        <!-- Left Column: Contact Info and Opening Hours -->
+        <div class="col-lg-6 pb-0 d-flex flex-column">
+            <!-- Contact Information Section -->
+            <div class="contact-info mb-3 bg-dark p-4 rounded shadow">
+                <h2 class="text-warning">Coordonnées</h2>
+                <p class="text-light"><i class="fa fa-map-marker-alt"></i> Adresse : 9 place Napoléon, 85000 La Roche-sur-Yon</p>
+                <p class="text-light"><i class="fa fa-phone-alt"></i> Téléphone : 02 51 71 04 04</p>
+                <p class="text-light"><i class="fa fa-envelope"></i> Email : contact@restaurantafroexotique.com</p>
+            </div>
+
+            <!-- Opening Hours Section -->
+            <div class="opening-hours bg-dark p-4 rounded shadow">
+                <h2 class="text-warning">Horaires d'ouverture</h2>
+                <ul class="list-unstyled text-light">
+                    <li><i class="fa fa-clock"></i> Lundi - Vendredi : 12h00 - 14h30, 19h00 - 22h30</li>
+                    <li><i class="fa fa-clock"></i> Samedi : 12h00 - 15h00, 19h00 - 23h00</li>
+                    <li><i class="fa fa-clock"></i> Dimanche : Fermé</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Right Column: Google Map -->
+        <div class="col-lg-6 mb-4 d-flex flex-column">
+            <div class="map-container rounded shadow flex-grow-1" style="min-height: 100%;">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5475.608715913191!2d-1.4308234133352882!3d46.670123577720574!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48042f8d0b1360d5%3A0x8f99e93bbe5c0ba0!2s9%20Pl.%20Napol%C3%A9on%2C%2085000%20La%20Roche-sur-Yon!5e0!3m2!1sfr!2sfr!4v1727772311088!5m2!1sfr!2sfr" width="600" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Spacer between the hours and the contact form -->
+    <div class="mb-5"></div>
+
+    <div class="row">
+        <!-- Contact Form Section -->
+        <div class="col-lg-12">
+            <div class="contact-form bg-dark p-4 rounded shadow mb-5">
+                <p class="text-light mb-4">Pour toute question ou demande, veuillez remplir le formulaire ci-dessous. Nous vous répondrons dans les plus brefs délais.</p>
+
+                {{ form_start(form, {'attr': {'class': 'contact-form bg-transparent rounded'}}) }}
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        {{ form_label(form.firstname, 'Prénom', {'label_attr': {'class': 'form-label text-light'}}) }}
+                        {{ form_widget(form.firstname, {'attr': {'class': 'form-control bg-light text-dark border-0 shadow-sm'}}) }}
+                        {{ form_errors(form.firstname) }}
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        {{ form_label(form.lastname, 'Nom', {'label_attr': {'class': 'form-label text-light'}}) }}
+                        {{ form_widget(form.lastname, {'attr': {'class': 'form-control bg-light text-dark border-0 shadow-sm'}}) }}
+                        {{ form_errors(form.lastname) }}
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    {{ form_label(form.email, 'Email', {'label_attr': {'class': 'form-label text-light'}}) }}
+                    {{ form_widget(form.email, {'attr': {'class': 'form-control bg-light text-dark border-0 shadow-sm'}}) }}
+                    {{ form_errors(form.email) }}
+                </div>
+
+                <div class="form-group mb-3">
+                    {{ form_label(form.subject, 'Sujet', {'label_attr': {'class': 'form-label text-light'}}) }}
+                    {{ form_widget(form.subject, {'attr': {'class': 'form-control bg-light text-dark border-0 shadow-sm'}}) }}
+                    {{ form_errors(form.subject) }}
+                </div>
+
+                <div class="form-group mb-4">
+                    {{ form_label(form.message, 'Message', {'label_attr': {'class': 'form-label text-light'}}) }}
+                    {{ form_widget(form.message, {'attr': {'class': 'form-control bg-light text-dark border-0 shadow-sm', 'rows': '5'}}) }}
+                    {{ form_errors(form.message) }}
+                </div>
+
+                <div class="form-check mb-4">
+                    {{ form_widget(form.agreeTerms, {'attr': {'class': 'form-check-input'}}) }}
+                    {{ form_label(form.agreeTerms, 'J\'accepte les mentions ci-dessous :', {'label_attr': {'class': 'form-check-label text-light'}}) }}
+                    <p class="text-light small">En envoyant ce formulaire, vous acceptez que vos données soient utilisées pour répondre à votre demande, conformément à notre politique de confidentialité.</p>
+                </div>
+
+                <!-- Button with reduced bottom padding and added margin to footer -->
+                <div class="d-grid">
+                    {{ form_widget(form.send, {'attr': {'class': 'button btn btn-warning'}}) }}
+                </div>
+
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

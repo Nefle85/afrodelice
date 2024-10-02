@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AFRODELICE - Restaurant Africain à La Roche-sur-Yon{% endblock %}
+
+{% block body %}
+<div class="custom-container">
+    <div class="row">
+    
+        <!-- Colonne pour le texte de bienvenue -->
+        <div class="col-md-6 d-flex align-items-center">
+            <div class="welcome-text full-height d-flex flex-column justify-content-center">
+                <h1>Bienvenue chez <strong>Afrodelice</strong></h1>
+                <p>
+                    Au cœur de <strong>La Roche-sur-Yon</strong>, <strong>Afrodelice</strong> est le seul <strong>restaurant africain</strong> de la ville,
+                    vous offrant une <strong>cuisine afro-exotique</strong> authentique. Découvrez nos plats traditionnels d'<strong>Afrique de l'Ouest</strong>
+                    et des <strong>îles créoles</strong>, préparés avec passion et des ingrédients frais. Nos spécialités incluent le <strong>thieb</strong>,
+                    le <strong>mafé</strong>, et nos <strong>grillades de viandes et poissons fumées</strong>, cuites au charbon de bois pour une explosion de
+                    saveurs.
+                </p>
+                <p>
+                    Laissez-vous transporter dans une <a href="{{ path('app_team') }}">ambiance colorée et conviviale</a>, où la <strong>musique africaine</strong> vous invite à partager un moment agréable entre amis, en famille ou en couple. Que ce soit pour un <strong>déjeuner rapide</strong>, un <strong>repas en famille</strong>, ou même un <strong>anniversaire</strong>, <strong>Babimeal</strong> est l’endroit idéal pour savourer une <a href="{{ path('app_menu') }}"><strong>cuisine généreuse</strong></a> et délicieuse.
+                </p>
+                <p>
+                    N'oubliez pas de découvrir nos services, incluant des <strong>plats à emporter</strong>, des <a href="{{ path('app_contact') }}"><strong>réservations</strong></a>, et la <a href="{{ path('app_contact') }}"><strong>privatisation du restaurant</strong></a> pour vos événements spéciaux. Venez vivre une <strong>expérience culinaire unique</strong> chez <strong>Afrodelice</strong> !
+                </p>
+            </div>
+        </div>
+
+        <!-- Colonne pour le carrousel -->
+        <div class="col-md-6">
+            <div id="carouselExampleAutoplaying" class="carousel slide full-height" data-bs-ride="carousel" data-bs-interval="3000" data-bs-pause="false">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="{{ asset('divers/images/seafoodboilia.jpg') }}" class="d-block w-100 carousel-image" alt="Seafood boil avec des crevettes, des crabes, des moules, du maïs et des pommes de terre, assaisonné d’épices cajun, servi dans un plat individuel">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{ asset('divers/images/mafeia2.jpg') }}" class="d-block w-100 carousel-image" alt="Plat traditionnel africain de mafé avec du poulet, des légumes et une sauce épaisse à base de pâte d’arachide, servi avec du riz blanc">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{ asset('divers/images/pastelsia2.jpg') }}" class="d-block w-100 carousel-image" alt="Pastels africains frits, garnis de poisson épicé et de légumes, servis avec une sauce tomate piquante">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{ asset('divers/images/pouletyassaia.jpg') }}" class="d-block w-100 carousel-image" alt="Poulet yassa sénégalais mariné dans du citron et des oignons, accompagné de riz blanc et de légumes.">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{ asset('divers/images/thiebia.jpg') }}" class="d-block w-100 carousel-image" alt="Plat traditionnel sénégalais de thieboudienne avec du poisson, du riz, des légumes variés et des épices, présenté dans une assiette en terre cuite">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Précédent</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Suivant</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

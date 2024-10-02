@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/team.css') }}" />
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1 class="text-center mb-5">Qui sommes-nous ?</h1>
+
+    <!-- Section 1: Présentation du restaurant -->
+    <section class="row align-items-center">
+        <div class="col-md-6">
+            <h2>Le Restaurant Afrodelice</h2>
+            <p>
+                Afrodelice est un espace dédié à la <span class="highlight">cuisine afro-exotique</span>, où chaque plat raconte une histoire. 
+                Situé au cœur de <span class="highlight">La Roche-sur-Yon</span>, nous sommes fiers de proposer une cuisine authentique de l'<span class="highlight">Afrique de l'Ouest</span>, 
+                ainsi que des influences des <span class="highlight">îles créoles</span>. Nos plats, faits maison, combinent des saveurs épicées et sucrées-salées, 
+                préparés avec des ingrédients frais et de qualité.
+            </p>
+            <p>
+                En tant que seul restaurant africain de la ville, nous nous engageons à offrir une expérience culinaire inégalée. 
+                Chaque repas chez Afrodelice est une véritable <span class="highlight">célébration des saveurs</span>, que ce soit pour un repas quotidien ou un événement spécial.
+            </p>
+        </div>
+        <div class="col-md-6 text-center">
+            <img src="/divers/images/restoAfrodelice.jpg" alt="Restaurant Afrodelice" class="img-fluid same-size" />
+        </div>
+    </section>
+
+    <!-- Section 2: Présentation de l'équipe -->
+    <section class="row align-items-center">
+        <div class="col-md-6 text-center">
+            <img src="/divers/images/teamAfrodelice.jpg" alt="Équipe du restaurant Afrodelice" class="img-fluid same-size" />
+        </div>
+        <div class="col-md-6">
+            <h2>L'Équipe Passionnée</h2>
+            <p>
+                Notre équipe est composée de <span class="highlight">chefs passionnés</span> et de personnel dévoué, prêts à vous offrir une expérience unique. 
+                Chaque membre de l’équipe apporte son expertise et son amour de la cuisine pour garantir une <span class="highlight">expérience mémorable</span>. 
+                Nous nous efforçons d'offrir un <span class="highlight">service chaleureux</span> et attentif.
+            </p>
+        </div>
+    </section>
+
+    <!-- Section 3: Philosophie culinaire -->
+    <section class="row align-items-center">
+        <div class="col-md-6">
+            <h2>Notre Philosophie Culinaire</h2>
+            <p>
+                Chez Afrodelice, la <span class="highlight">convivialité</span> et le <span class="highlight">partage</span> sont au cœur de notre approche. 
+                Nous croyons en l'importance de créer un environnement où chacun peut se rassembler, découvrir de nouvelles saveurs et célébrer ensemble. 
+                Nos plats sont préparés avec des ingrédients locaux et respectent les <span class="highlight">traditions culinaires</span> de nos cultures d'origine.
+            </p>
+            <p>
+                Nous vous invitons à faire partie de cette aventure culinaire et à découvrir les <span class="highlight">richesses de la cuisine afro-exotique</span>.
+                <strong>Bienvenue chez Afrodelice !</strong>
+            </p>
+        </div>
+        <div class="col-md-6 text-center">
+            <img src="/divers/images/philoAfrodelice.jpg" alt="Philosophie Culinaire Afrodelice" class="img-fluid same-size" />
+        </div>
+    </section>
+</div>
+{% endblock %}
