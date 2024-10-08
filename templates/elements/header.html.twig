@@ -3,7 +3,7 @@
     <!-- Logo & Nom du restaurant -->
     <a class="navbar-brand" href="{{ path('app_main') }}" style="color: orange; font-weight: bold;">
       <img src="{{ asset('divers/images/afrodelice.jpg') }}" alt="Logo du restaurant Afrodelice" style="width: 80px; margin: 0px 10px;">
-      RESTO AFRO-EXOTIQUE
+      RESTO
     </a>
 
     <!-- Toggler pour mobile -->
@@ -20,22 +20,22 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ path('app_menu') }}" style="color: orange; font-weight: bold;">LA CARTE</a>
+          <a class="nav-link" href="{{ path('app_menu') }}" style="color: orange; font-weight: bold;">CARTE</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ path('app_post') }}" style="color: orange; font-weight: bold;">L'ACTU</a>
+          <a class="nav-link" href="{{ path('app_post') }}" style="color: orange; font-weight: bold;">ACTU</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ path('app_team') }}" style="color: orange; font-weight: bold;">QUI-SOMMES-NOUS ?</a>
+          <a class="nav-link" href="{{ path('app_team') }}" style="color: orange; font-weight: bold;">PRESENTATION</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ path('app_contact') }}" style="color: orange; font-weight: bold;">CONTACTEZ-NOUS</a>
+          <a class="nav-link" href="{{ path('app_contact') }}" style="color: orange; font-weight: bold;">CONTACT</a>
         </li>
 
         <!-- Dashboard - Visible seulement pour les admins -->
         {% if is_granted('ROLE_ADMIN') %}
           <li class="nav-item">
-            <a class="nav-link" href="{{ path('admin') }}" style="color: orange; font-weight: bold;">ADMINISTRATION</a>
+            <a class="nav-link" href="{{ path('admin') }}" style="color: orange; font-weight: bold;">A</a>
           </li>
         {% endif %}
       </ul>
@@ -50,8 +50,7 @@
               <img class="rounded-circle" src="{{ asset('divers/avatars/' ~ app.user.avatar) }}" alt="User Avatar" style="width: 30px; height: 30px; border: 2px solid orange; margin-right: 10px;">
             {% endif %}
             <span class="zxfirstname" style="color: white;">{{ app.user.firstname|capitalize }}</span>
-            <span class="zxlastname" style="color: orange; font-weight: bold; text-transform: uppercase;">{{ app.user.lastname }}</span>
-            <a class="loggouts ms-3" href="{{ path('app_logout') }}">
+            <a class="loggouts my-3" href="{{ path('app_logout') }}">
               <i class="fa-solid fa-power-off" style="color: orange;"></i>
             </a>
           </div>

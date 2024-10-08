@@ -13,8 +13,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Intl\Countries;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
-use Symfony\Component\Validator\Constraints\Length;
-use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Regex;
+
 
 class RegistrationFormType extends AbstractType
 {
@@ -58,15 +58,8 @@ class RegistrationFormType extends AbstractType
                 'mapped' => false,
                 'attr' => ['autocomplete' => 'new-password'],
                 'constraints' => [
-                    new NotBlank([
-                        'message' => 'Please enter a password',
-                    ]),
-                    new Length([
-                        'min' => 6,
-                        'minMessage' => 'Your password should be at least {{ limit }} characters',
-                        // max length allowed by Symfony for security reasons
-                        'max' => 4096,
-                    ]),
+                    new Regex('/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{14,}$/',
+                     message : "Le mot de passe doit contenir 14 caractères avec 1 majuscule, 1 minuscule, 1 chiffre et un caractère spécial")
                 ],
             ])
         ;
