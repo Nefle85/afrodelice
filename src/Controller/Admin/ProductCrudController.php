@@ -2,7 +2,7 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Category; // Assure-toi d'importer la bonne entité pour la relation Category
+use App\Entity\Category;
 use App\Entity\Product;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
@@ -11,7 +11,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField; // Utilise DateTimeField pour createdAt et updatedAt
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField; // Use DateTimeField for createdAt and updatedAt
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
@@ -32,7 +32,9 @@ class ProductCrudController extends AbstractCrudController
             TextField::new('details','Détails')->setColumns('col-md-6'),
             TextField::new('description')->setColumns('col-md-6'),
             AssociationField::new('category','Catégorie')->setColumns('col-md-3'),
-            NumberField::new('price','Prix')->setColumns('col-md-3'), //Utilisation d'un champ de type NumberField car l'attribut "price" est de type décimal (numérique)
+
+            //Using a NumberField type field because the attribute "price" is decimal (numeric)
+            NumberField::new('price','Prix')->setColumns('col-md-3'),
 
             $image = ImageField::new('image')
                 ->setUploadDir('public/divers/images')
@@ -50,15 +52,10 @@ class ProductCrudController extends AbstractCrudController
         ];
     }
 
-            // Note: 'createdBy' n'est pas inclus ici car il est souvent automatiquement géré
-            // avec la relation utilisateur. Tu peux l'ajouter si nécessaire avec des permissions spécifiques.
-
-  
-
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
-            ->setPageTitle(Crud::PAGE_INDEX, 'Plats') // Changer le titre de la page
+            ->setPageTitle(Crud::PAGE_INDEX, 'Plats')
             ->setEntityLabelInSingular('Plat') 
             ->setDefaultSort(['createdAt' => 'DESC'])
             ->setPaginatorPageSize(5)
@@ -71,8 +68,7 @@ class ProductCrudController extends AbstractCrudController
             ->add('name')
             ->add('category')
             ->add('available')
-            // Note: Si tu veux filtrer par dates, tu peux ajouter 'createdAt' et 'updatedAt'
-    ;
+        ;
 
     }
 

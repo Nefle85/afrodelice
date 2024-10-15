@@ -12,10 +12,10 @@ class MenuController extends AbstractController
     #[Route('/menu', name: 'app_menu')]
     public function index(CategoryRepository $categoryRepository): Response
     {
-        // Récupère toutes les catégories avec leurs produits associés
+        // Retrieves all categories with their associated products
         $categories = $categoryRepository->findAll();
 
-        // Rendu de la vue avec les catégories et les produits
+        // Renders the view with the categories and products
         return $this->render('menu/index.html.twig', [
             'categories' => $categories,
         ]);

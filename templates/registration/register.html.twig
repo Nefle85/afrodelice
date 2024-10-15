@@ -70,10 +70,16 @@
 
                 <div class="form-group">
                     <div class="input-group mb-4">
+
                         <div class="input-group-prepend">
                             <span class="input-group-text" style="background-color: #f39112; color: #fff;"><i class="fas fa-lock"></i></span>
                         </div>
+
                         {{ form_widget(registrationForm.plainPassword, { attr: { class: 'form-control', placeholder: 'Mot de passe', style: 'border: 1px solid #000;' } }) }}
+                        
+                        {# Displays validation errors for the plainPassword field in the registration form #}
+                        {{ form_errors(registrationForm.plainPassword) }}
+                        
                     </div>
                 </div>
 

@@ -1,65 +1,67 @@
-<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #333; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+<nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
   <div class="container-fluid">
-    <!-- Logo & Nom du restaurant -->
-    <a class="navbar-brand" href="{{ path('app_main') }}" style="color: orange; font-weight: bold;">
-      <img src="{{ asset('divers/images/afrodelice.jpg') }}" alt="Logo du restaurant Afrodelice" style="width: 80px; margin: 0px 10px;">
-      RESTO
+
+    <!-- Restaurant logo and identity -->
+    <a class="navbar-brand" href="{{ path('app_main') }}">
+      <img src="{{ asset('divers/images/afrodelice.jpg') }}" alt="Logo du restaurant Afrodelice" class="logo">
+      RESTO AFRO-EXOTIQUE
     </a>
 
-    <!-- Toggler pour mobile -->
+    <!-- Toggler for mobile -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon" style="color: orange;"></span>
+      <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- Liens de navigation -->
+    <!-- Navigation links-->
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav mx-auto" style="gap: 30px;">
+      <ul class="navbar-nav mx-auto">
         <li class="nav-item">
-          <a class="nav-link" href="{{ path('app_main') }}" style="color: white; font-weight: bold;">
+          <a class="nav-link home-link" href="{{ path('app_main') }}">
             <i class="fa fa-home"></i>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ path('app_menu') }}" style="color: orange; font-weight: bold;">CARTE</a>
+          <a class="nav-link menu-link" href="{{ path('app_menu') }}"> LA CARTE</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ path('app_post') }}" style="color: orange; font-weight: bold;">ACTU</a>
+          <a class="nav-link actu-link" href="{{ path('app_post') }}">L'ACTU</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ path('app_team') }}" style="color: orange; font-weight: bold;">PRESENTATION</a>
+          <a class="nav-link presentation-link" href="{{ path('app_team') }}">QUI-SOMMES-NOUS ?</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ path('app_contact') }}" style="color: orange; font-weight: bold;">CONTACT</a>
+          <a class="nav-link contact-link" href="{{ path('app_contact') }}">CONTACTEZ-NOUS</a>
         </li>
 
-        <!-- Dashboard - Visible seulement pour les admins -->
+        <!-- Dashboard Item - Visible only to admins -->
         {% if is_granted('ROLE_ADMIN') %}
           <li class="nav-item">
-            <a class="nav-link" href="{{ path('admin') }}" style="color: orange; font-weight: bold;">A</a>
+            <a class="nav-link admin-link" href="{{ path('admin') }}">ADMINISTRATION</a>
           </li>
         {% endif %}
       </ul>
 
-      <!-- Social et utilisateur -->
-      <div class="header-social-links d-flex align-items-center ms-auto">
-        {% if app.user %}
-          <div class="d-flex align-items-center">
-            {% if app.user.avatar is empty %}
-              <i class="fa-solid fa-circle-user" style="color: white;"></i>
-            {% else %}
-              <img class="rounded-circle" src="{{ asset('divers/avatars/' ~ app.user.avatar) }}" alt="User Avatar" style="width: 30px; height: 30px; border: 2px solid orange; margin-right: 10px;">
-            {% endif %}
-            <span class="zxfirstname" style="color: white;">{{ app.user.firstname|capitalize }}</span>
-            <a class="loggouts my-3" href="{{ path('app_logout') }}">
-              <i class="fa-solid fa-power-off" style="color: orange;"></i>
-            </a>
-          </div>
-        {% else %}
-          <a class="login" href="{{ path('app_login') }}" style="color: white;">
-            <i class="fa-regular fa-circle-user"></i>&ensp;Se connecter
-          </a>
-        {% endif %}
+      <!-- User Management -->
+      <div class="header-user-management">
+          {% if app.user %}
+              <div>
+                  {% if app.user.avatar is empty %}
+                      <i class="fa-solid fa-circle-user"></i>
+                  {% else %}
+                      <img class="rounded-circle avatar-image" src="{{ asset('divers/avatars/' ~ app.user.avatar) }}" alt="User Avatar">
+                  {% endif %}
+                  <span class="zxfirstname">{{ app.user.firstname|capitalize }}</span>
+                  <a class="loggouts" href="{{ path('app_logout') }}">
+                      <i class="fa-solid fa-power-off"></i>
+                  </a>
+              </div>
+          {% else %}
+              <a class="login" href="{{ path('app_login') }}">
+                  <i class="fa-regular fa-circle-user"></i>&ensp;Se connecter
+              </a>
+          {% endif %}
       </div>
+
     </div>
   </div>
 </nav>
