@@ -15,6 +15,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField; // Use DateTimeField fo
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\CustomField; // Use CustomField for formatted price
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class ProductCrudController extends AbstractCrudController
@@ -33,8 +34,10 @@ class ProductCrudController extends AbstractCrudController
             TextField::new('description')->setColumns('col-md-6'),
             AssociationField::new('category','Catégorie')->setColumns('col-md-3'),
 
-            //Using a NumberField type field because the attribute "price" is decimal (numeric)
-            NumberField::new('price','Prix')->setColumns('col-md-3'),
+            // Using CustomField to display formatted price
+            CustomField::new('formattedPrice', 'Prix')
+                ->setCustomOption('template', 'admin/fields/price.html.twig')
+                ->setColumns('col-md-3'),
 
             $image = ImageField::new('image')
                 ->setUploadDir('public/divers/images')
@@ -44,9 +47,9 @@ class ProductCrudController extends AbstractCrudController
                 ->setColumns('col-md-2'),
 
             BooleanField::new('available')
-            ->setColumns('col-md-2 mt-4')
-            ->setLabel('Disponible'),
-            
+                ->setColumns('col-md-2 mt-4')
+                ->setLabel('Disponible'),
+                
             DateTimeField::new('createdAt','Créé le')->onlyOnIndex(),
             DateTimeField::new('updatedAt','Modifié le')->onlyOnIndex(),
         ];
@@ -69,7 +72,6 @@ class ProductCrudController extends AbstractCrudController
             ->add('category')
             ->add('available')
         ;
-
     }
 
     public function configureActions(Actions $actions): Actions

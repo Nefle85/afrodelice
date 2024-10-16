@@ -46,7 +46,6 @@ class Product
     {
         $this->createdAt = new \DateTimeImmutable();
         $this->updatedAt = new \DateTimeImmutable();
-        // Assurez-vous que 'comment' n'est pas une propriété non définie
     }
 
     public function getId(): ?int
@@ -160,5 +159,11 @@ class Product
         $this->category = $category;
 
         return $this;
+    }
+
+    // Nouvelle méthode pour obtenir le prix formaté
+    public function getFormattedPrice(): string
+    {
+        return number_format($this->price, 2, '.', ' ') . ' €';
     }
 }

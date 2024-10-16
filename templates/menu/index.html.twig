@@ -1,35 +1,61 @@
 {% extends 'base.html.twig' %}
 
+{# Define the title of the page, which will be displayed in the browser tab and header #}
 {% block title %}Menu Afrodelice | Cuisine Afro-Exotique Authentique à La Roche sur Yon{% endblock %}
 
+{# Main body of the page #}
 {% block body %}
+
 <div class="menu-container">
+    {# Main title of the menu section #}
     <h1 class="menu-title">La Carte</h1>
-    
     <div class="row">
+
+        {# Loop through each category of products #}
         {% for category in categories %}
+
             <div class="col-md-12 category-section">
+                {# Display the name of the category #}
                 <h2 class="category-title">{{ category.name }}</h2>
                 <div class="row">
+
+                    {# Loop through each product in the current category #}
                     {% for product in category.products %}
                         <div class="col-md-4">
+                            
                             <div class="card product-card">
+
+                                {# Check if the product has an image #}
                                 {% if product.image %}
+                                    {# Display the product image if it exists #}
                                     <img src="{{ asset('divers/images/' ~ product.image) }}" class="card-img-top product-image" alt="{{ product.name }}">
+                               
                                 {% else %}
-                                    <img src="{{ asset('divers/images/placeholder.png') }}" class="card-img-top product-image" alt="Image non disponible">
+                                    {# Display a placeholder image if the product image does not exist #}
+                                    <img src="{{ asset('divers/images/placeholder.png') }}" class="card-img-top product-image" alt="Image not available">
+                                
                                 {% endif %}
                                 <div class="card-body">
+                                    {# Display the name of the product #}
                                     <h3 class="product-name">{{ product.name }}</h3>
+                                    {# Display the description of the product #}
                                     <p class="product-description">{{ product.description }}</p>
-                                    <p class="product-price">{{ product.price }} €</p>
+                                    {# Display the formatted price of the product using the method defined in the Product entity #}
+                                    <p class="product-price">{{ product.getFormattedPrice() }}</p>
                                 </div>
+
                             </div>
+
                         </div>
+
                     {% endfor %}
+
                 </div>
             </div>
+
         {% endfor %}
+
     </div>
 </div>
+
 {% endblock %}
